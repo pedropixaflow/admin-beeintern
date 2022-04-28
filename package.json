@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "sass": "sass --watch public/src/style/scss:public/src/style/css/",
     "sass-min": "sass --watch public/src/style/scss:public/src/style/css/ --style compressed"
