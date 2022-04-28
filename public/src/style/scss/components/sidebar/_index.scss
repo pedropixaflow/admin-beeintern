@@ -1,0 +1,77 @@
+#wrapper {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#sidebar-wrapper {
+  position: relative;
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .painel {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.sidebar-banner {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e9ecef;
+  border-right: 4px solid #dddddd;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+.menu {
+  padding: 0rem 0.25rem;
+  height: calc(100vh - 65px);
+  overflow-y: auto;
+}
+
+.options-sidebar-login {
+  border-radius: 0rem !important;
+  color: $gray-600 !important;
+}
+
+.active-sidebar {
+  font-weight: 500;
+  border-radius: 0.25rem !important;
+  background-color: $primary_theme;
+  color: #f9f9f9 !important;
+}
+
+.active-sidebar:hover {
+  background-color: $primary_theme;
+}

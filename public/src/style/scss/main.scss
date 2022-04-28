@@ -1,0 +1,14 @@
+// variaveis customizadas
+@import "./themes/custom.theme";
+
+// editaveis
+@import "./themes/index";
+
+// bootstrap
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+
+// components
+@import "./components/index";
+
+// dark mode
+@import "./themes/dark.mode";

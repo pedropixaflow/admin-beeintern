@@ -1,0 +1,92 @@
+.card-header {
+  color: $gray-800;
+}
+
+.card-primary {
+  background-color: $primary_theme;
+}
+
+.o-hidden {
+  overflow: hidden !important;
+}
+
+.card-body-icon {
+  color: #ffffff;
+  position: absolute;
+  z-index: 0;
+  top: -25px;
+  right: -25px;
+  font-size: 5rem;
+  -webkit-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+
+.none-transform {
+  right: -5px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.card-footer:last-child {
+  border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+}
+
+.z-1 {
+  z-index: 1;
+}
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.box-part {
+  width: 100%;
+  min-width: 280px;
+  max-width: 340px;
+  margin: auto;
+  background-color: $light_theme !important;
+  border-radius: 0.25rem;
+  padding: 60px 10px;
+  margin: 30px 0px;
+}
+
+.lbl-box-part {
+  width: 100%;
+}
+
+.card-input-element:checked + .card {
+  -webkit-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  transition: border 0.3s;
+}
+
+.card-input-element:checked + .card::after {
+  color: $primary_theme;
+  content: "\2713";
+  font-family: "Material Icons";
+  -webkit-animation-name: fadeInCheckbox;
+  animation-name: fadeInCheckbox;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-options {
+  background-color: #e9ecef;
+  padding-top: 1rem;
+  border-radius: 0.25rem;
+  font-size: 11pt;
+}
+
+.card-options.box {
+  background-image: linear-gradient(rgba(233, 236, 239, 0.9), rgba(233, 236, 239, 0.88)), url("/src/img/banner.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  border-radius: 0.25rem;
+}

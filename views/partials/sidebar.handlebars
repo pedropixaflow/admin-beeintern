@@ -1,0 +1,83 @@
+<div class="sidebar noselect" id="sidebar-wrapper">
+  <div class="painel">
+    <div class="sidebar-banner text-center pt-2 pb-2" style="min-height: 65px;">
+      <b id="hora_atual" class="m-0"></b>
+      <p class="mb-0">
+        <small>
+          <b id="data_atual"></b>
+        </small>
+      </p>
+    </div>
+    <div class="menu pt-2 pl-2 pr-2">
+      <div style="min-height: 100vh;">
+        <div>
+          <p class="my-2">
+            <small>
+              <b>
+                Get Started
+              </b>
+            </small>
+          </p>
+          <a href="/dashboard?page=1&limit=20" class="btn btn-block options-sidebar-login text-left">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <b>Home</b>
+          </a>
+        </div>
+        <div class="mt-4">
+          <p class="mb-2">
+            <small>
+              <b>
+                Forms
+              </b>
+            </small>
+          </p>
+          <a href="/dashboard/subscription?page=1&limit=20" class="btn btn-block options-sidebar-login text-left">
+            <i class="fa fa-cube" aria-hidden="true"></i>
+            <b>Subscriptions</b>
+          </a>
+        </div>
+        <a href="/logout" class="btn btn-logout btn-block pt-2 pb-2 mb-5 mt-4">
+          <b>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            Logout
+          </b>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/src/js/scripts/painel/main_date_panel.js"></script>
+<script src="/src/js/scripts/painel/main_time_panel.js"></script>
+
+<script>
+  $(function () {
+
+    let list = $('.options-sidebar-login')
+    let current = location.pathname
+    let position = null
+
+    $('.options-sidebar-login').each(function (index) {
+      let item = $(this)
+      item.attr('id', `sidebar-${index}`)
+      let url = item.attr('href').split("?")[0]
+
+      if (url === current) position = index
+    })
+
+    let element = $(`#sidebar-${position}`)
+
+    if (element && position !== null) {
+      element.addClass("active-sidebar")
+
+      setTimeout(function () {
+        let opt = $(`#sidebar-${position}`).offset().top
+        let menu = $(".menu").offset().top
+
+        let targetOffset = opt - menu
+
+      }, 1100)
+    }
+
+  })
+</script>

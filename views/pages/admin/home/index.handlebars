@@ -1,0 +1,227 @@
+<div class="container-fluid mt-5 pb-5">
+  <div class="mb-5">
+    <h1 class="h3">
+      Admin | {{app.title}}
+    </h1>
+
+    <hr>
+    <p class="m-0" id="msg"></p>
+  </div>
+
+  <div class="mb-5">
+    <div class="row mt-5">
+      <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white card-primary o-hidden h-100">
+          <div class="card-body">
+            <div class="card-body-icon none-transform">
+              <i class="fa fa-fw fa-user-plus"></i>
+            </div>
+            <div class="mr-5">
+              <b>
+                Register
+              </b>
+            </div>
+          </div>
+          <a class="card-footer text-white clearfix small z-1" href="#" data-toggle="modal" data-target="#cadastrarAdm"
+            onclick="novaSenha()">
+            <span class="float-left">Open</span>
+            <span class="float-right">
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white card-primary o-hidden h-100">
+          <div class="card-body">
+            <div class="card-body-icon none-transform">
+              <i class="fa fa-fw fa-wrench"></i>
+            </div>
+            <div class="mr-5">
+              <b>
+                My Account
+              </b>
+            </div>
+          </div>
+          <a class="card-footer text-white clearfix minify-icon small z-1" href="#" data-toggle="modal"
+            data-target="#EditarAdm">
+            <span class="float-left">Open</span>
+            <span class="float-right">
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white card-primary o-hidden h-100">
+          <div class="card-body">
+            <div class="card-body-icon none-transform">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+            </div>
+            <div class="mr-5">
+              <b>
+                Change password
+              </b>
+            </div>
+          </div>
+          <a class="card-footer text-white clearfix minify-icon small z-1" href="#" data-toggle="modal"
+            data-target="#EditarAdmPassword">
+            <span class="float-left">Open</span>
+            <span class="float-right">
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-table" id="scrolltable">
+    <table class="table table-bordered table-striped m-0 p-0">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">User</th>
+          <th scope="col">Permissions</th>
+          <th scope="col" style="width: 100px;" class="text-center">#</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#data}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{login}}</td>
+            <td>{{type}}</td>
+
+            <td class="text-center">
+
+              <div class="dropdown dropleft">
+                <button class="nobutton" type="button" id="action" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <span class="material-icons">apps</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="action">
+
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#EditarAdm{{id}}">
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                    Change account
+                  </a>
+
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#EditarAdmPassword{{id}}">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    Change password
+                  </a>
+
+                  <a class="dropdown-item" href="#" data-toggle="modal" onclick="apagarUsuario('{{id}}')">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    Delete account
+                  </a>
+
+                </div>
+              </div>
+
+            </td>
+          </tr>
+
+          <div class="modal fade" id="EditarAdm{{id}}" tabindex="-1" role="dialog" aria-labelledby="labelCreate"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content" style="border-radius: 0px;">
+
+                <div class="modal-header">
+                  <h5 class="modal-title" id="labelCreate">
+                    <i class="fa fa-shield" aria-hidden="true"></i>
+                    {{name}}
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body p-4">
+                  <form method="POST" action="/user/editar/perfil">
+                    <div class="form-group mt-2">
+                      <label for="name">
+                        <i class="fa fa-cube mr-1" aria-hidden="true"></i>
+                        Name
+                      </label>
+                      <input autocomplete="off" type="text" class="form-control" id="name" name="name"
+                        placeholder="Name" value="{{name}}" required>
+                    </div>
+                    <div class="form-group mt-4">
+                      <label for="login">
+                        <i class="fa fa-flag mr-1" aria-hidden="true"></i>
+                        Login
+                      </label>
+                      <input autocomplete="off" type="text" class="form-control" id="login" placeholder="Login"
+                        name="login" value="{{login}}" required>
+                    </div>
+
+                    <input type="hidden" value="{{id}}" name="id" />
+
+                    <div class="text-center mt-5 mb-2">
+                      <button type="submit" class="btn btn-primary btn-block py-3">
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="EditarAdmPassword{{id}}" tabindex="-1" role="dialog" aria-labelledby="labelCreate"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content" style="border-radius: 0px;">
+
+                <div class="modal-header">
+                  <h5 class="modal-title" id="labelCreate">
+                    <i class="fa fa-shield" aria-hidden="true"></i>
+                    {{name}}
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body p-4">
+                  <form method="POST" action="/user/editar/password">
+                    <div class="form-group mt-4">
+                      <label for="login">
+                        <i class="fa fa-lock mr-1" aria-hidden="true"></i>
+                        Password
+                      </label>
+                      <input autocomplete="off" type="password" class="form-control" name="password" required>
+                    </div>
+
+                    <input type="hidden" value="{{id}}" name="id" />
+
+                    <div class="text-center mt-5 mb-2">
+                      <button type="submit" class="btn btn-primary btn-block py-3">
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        {{/data}}
+      </tbody>
+    </table>
+  </div>
+
+  {{> modal/newuser}}
+
+  {{> modal/user}}
+  {{> modal/password}}
+
+  <script src="/src/js/scripts/dashboard/home/index.js"></script>
+  <script src="/src/js/scripts/datetime/index.js"></script>
+</div>

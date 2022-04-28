@@ -1,0 +1,46 @@
+<div class="modal fade" id="EditarAdm" tabindex="-1" role="dialog" aria-labelledby="labelCreate" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 0px;">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="labelCreate">
+          <i class="fa fa-shield" aria-hidden="true"></i>
+          {{user.name}}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body p-4">
+        <form method="POST" action="/user/editar/perfil">
+          <div class="form-group mt-2">
+            <label for="name">
+              <i class="fa fa-cube mr-1" aria-hidden="true"></i>
+              Name
+            </label>
+            <input autocomplete="off" type="text" class="form-control" id="name" name="name" placeholder="Name"
+              value="{{user.name}}" required>
+          </div>
+          <div class="form-group mt-4">
+            <label for="login">
+              <i class="fa fa-flag mr-1" aria-hidden="true"></i>
+              Login
+            </label>
+            <input autocomplete="off" type="text" class="form-control" id="login" placeholder="Login" name="login"
+              value="{{user.login}}" required>
+          </div>
+
+          <input type="hidden" value="{{user.id}}" name="id" />
+
+          <div class="text-center mt-5 mb-2">
+            <button type="submit" class="btn btn-primary btn-block py-3">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

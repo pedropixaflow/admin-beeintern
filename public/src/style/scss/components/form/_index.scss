@@ -1,0 +1,139 @@
+.form-filter {
+  background-color: $light_theme;
+}
+
+.form-control {
+  height: calc(1.5em + 1.25rem + 2px);
+}
+
+// dropdown
+.dropdown-menu {
+  background-color: $gray-100 !important;
+  margin: 0.4rem 0 0;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.04);
+  left: auto;
+  right: 0;
+  min-width: 200px;
+  z-index: 10;
+  outline: 0;
+}
+
+.dropdown-item {
+  width: 100% !important;
+  padding: 0.75rem 1.5rem;
+}
+
+.dropdown-item.active,
+.dropdown-item:active,
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: transparent !important;
+  color: inherit;
+}
+
+.dropdown:after {
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity 0.15s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.dropdown-menu {
+  z-index: 1021 !important;
+}
+
+.dropdown.show:after {
+  z-index: 1020;
+  opacity: 1;
+  visibility: visible;
+  position: fixed;
+}
+
+.form-check-input {
+  width: 1.25em;
+  height: 1.25em;
+  margin-top: 0.125em;
+  vertical-align: top;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.form-switch {
+  padding-left: 2.5em;
+}
+
+.form-switch .form-check-input {
+  width: 2em;
+  margin-left: -2.5em;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+  background-position: left center;
+  border-radius: 2em;
+}
+
+.form-switch .form-check-input:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%238bbafe'/%3e%3c/svg%3e");
+}
+
+.form-switch .form-check-input:checked {
+  background-position: right center;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.form-check-input:checked {
+  background-color: $primary_theme;
+  border: none;
+}
+
+// token
+.tokenfield {
+  height: auto;
+  min-height: 46px !important;
+  padding-bottom: 0 !important;
+  padding-top: 0.6rem !important;
+}
+
+.tokenfield .token {
+  border: 1px solid rgba(0, 123, 255, 0.25) !important;
+  background-color: rgba(0, 123, 255, 0.25) !important;
+}
+
+.tokenfield .token {
+  height: auto !important;
+}
+
+[type="date"],
+[type="datetime-local"] {
+  background: #fff url("/src/img/calendar.png") 97% 50% no-repeat;
+  background-size: 16px;
+}
+
+[type="date"]::-webkit-inner-spin-button,
+[type="datetime-local"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator,
+[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+[type="date"]::-webkit-clear-button,
+[type="datetime-local"]::-webkit-clear-button {
+  display: none;
+}

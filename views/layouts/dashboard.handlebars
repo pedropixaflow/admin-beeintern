@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  {{> SEO}}
+
+  {{!-- css --}}
+  <link rel="stylesheet" href="/src/style/css/main.css">
+
+  {{!-- icon --}}
+  <link rel="stylesheet" href="/src/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+</head>
+
+<body>
+
+  {{!-- default --}}
+  <script src="/src/js/jquery/jquery.min.js"></script>
+  <script src="/src/js/jquery/cookie.min.js"></script>
+  <script src="/src/js/popper/popper.min.js"></script>
+  <script src="/src/js/dist/bootstrap.min.js"></script>
+
+  {{!-- scripts --}}
+  <script src="/src/js/scripts/button/disabled.click.js"></script>
+  <script src="/src/js/scripts/tooltip/index.js"></script>
+
+  {{> loading}}
+
+  {{!-- alert --}}
+  <script src="/src/alert/js/index.min.js"></script>
+  <link rel="stylesheet" href="/src/alert/css/index.css">
+
+  {{!-- plugin de captura de URL --}}
+  <script src="/src/js/scripts/url/purl.js"></script>
+
+  {{!-- plugins select personalizado --}}
+  <script src="/src/plugin.select/dist/select.min.js"></script>
+  <link rel="stylesheet" href="/src/plugin.select/dist/select.min.css">
+
+  <div id="body">
+
+    {{!-- loading --}}
+    <script src="/src/js/scripts/loading/init.loading.js"></script>
+
+    <div class="d-flex" id="wrapper">
+      {{> sidebar}}
+
+      <div class="color-light" id="page-content-wrapper">
+        {{> navbar/sidebar}}
+
+        {{{body}}}
+      </div>
+    </div>
+  </div>
+
+  {{!-- loading --}}
+  <script src="/src/js/scripts/loading/end.loading.js"></script>
+
+  {{!-- sidebar --}}
+  <script src="/src/js/scripts/sidebar/index.js"></script>
+
+  {{!-- modo escuro --}}
+  <script src="/src/js/scripts/theme.dark/index.js"></script>
+
+  {{!-- dropdown --}}
+  <script src="/src/js/scripts/dropdown/index.js"></script>
+
+</body>
+
+</html>

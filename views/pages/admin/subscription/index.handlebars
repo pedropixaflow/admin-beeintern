@@ -1,0 +1,193 @@
+<div class="container-fluid mt-5">
+
+  <h1 class="mb-5">Subscriptions</h1>
+
+  <div class="mt-4 mb-4" id="paginator">
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-end">
+
+        <p class="pt-2 mr-3">Page
+          <span>{{results.pages.page}}</span>
+          of
+          <span>{{results.pages.max}}</span>
+        </p>
+
+        <li class="page-item {{#unless results.previous}}disabled{{/unless}}">
+          <a class="page-link"
+            href="/dashboard/subscription?page={{results.previous.page}}&limit={{results.previous.limit}}">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+
+        <li class="page-item {{#unless results.next}}disabled{{/unless}}">
+          <a class="page-link" href="/dashboard/subscription?page={{results.next.page}}&limit={{results.next.limit}}">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+
+  <div class="scroll-table" id="scrolltable">
+    <table class="table table-bordered table-striped m-0 p-0">
+      <thead>
+        <tr>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt;">Name</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt;">Country</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt;">Email</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt;">Phone</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt; min-width: 200px;">Work</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt; min-width: 200px;">Learn</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt; min-width: 200px;">Skills</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt; min-width: 280px;">About</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt;">Linkedin</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt;">Unpaid Internship</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt;">Currency</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt;">Salary</th>
+          <th scope="col" class="text-nowrap text-center" style="font-size: 10pt;">createdAt</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#results.results}}
+          <tr>
+            <td style="font-size: 11pt;">
+              {{name}}
+            </td>
+
+            <td style="font-size: 11pt;">
+              {{country}}
+            </td>
+
+            <td style="font-size: 11pt;">
+              {{email}}
+            </td>
+
+            <td class="text-nowrap" style="font-size: 11pt;">
+
+              {{#if urlPhone}}
+                <a href="{{urlPhone}}" target="_blank" rel="noopener noreferrer">
+                  <i class="fa fa-whatsapp mr-1" aria-hidden="true"></i>
+                  {{phone}}
+                </a>
+              {{else}}
+                {{phone}}
+              {{/if}}
+            </td>
+
+            <td style="font-size: 11pt; min-width: 200px;">
+              {{work}}
+            </td>
+
+            <td style="font-size: 11pt; min-width: 200px;">
+              {{learn}}
+            </td>
+
+            <td style="font-size: 11pt; min-width: 200px;">
+              <div id="accordion_skills_{{id}}">
+                <div class="">
+                  <div class="" id="headingOne">
+                    <p class="text-left max-line max-1 p-0 m-0">
+                      {{skills}}
+                    </p>
+
+                    <div class="text-center my-2">
+                      <button class="btn btn-outline-primary btn-sm" data-toggle="collapse" data-target="#skills_{{id}}"
+                        aria-expanded="true" aria-controls="{{id}}">
+                        see more...
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="skills_{{id}}" class="collapse" aria-labelledby="headingOne"
+                    data-parent="#accordion_skills_{{id}}">
+                    <div class="card-body border p-1">
+                      {{skills}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <td style="font-size: 11pt; min-width: 280px;">
+              <div id="accordion_about_{{id}}">
+                <div class="">
+                  <div class="" id="headingOne">
+                    <p class="text-left max-line max-1 p-0 m-0">
+                      {{about}}
+                    </p>
+
+                    <div class="text-center my-2">
+                      <button class="btn btn-outline-primary btn-sm" data-toggle="collapse" data-target="#about_{{id}}"
+                        aria-expanded="true" aria-controls="{{id}}">
+                        see more...
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="about_{{id}}" class="collapse" aria-labelledby="headingOne"
+                    data-parent="#accordion_about_{{id}}">
+                    <div class="card-body border p-1">
+                      {{about}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <td style="font-size: 11pt;">{{linkedin}}</td>
+
+            <td style="font-size: 11pt;">
+              {{unpaidInternship}}
+            </td>
+
+            <td style="font-size: 11pt;">
+              {{currency}}
+            </td>
+
+            <td style="font-size: 11pt;">
+              {{salary}}
+            </td>
+
+            <td style="font-size: 11pt;">
+              {{createdAt}}
+            </td>
+          </tr>
+        {{/results.results}}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-5" id="paginator">
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+
+        <p class="pt-2 mr-3">Page
+          <span>{{results.pages.page}}</span>
+          of
+          <span>{{results.pages.max}}</span>
+        </p>
+
+        <li class="page-item {{#unless results.previous}}disabled{{/unless}}">
+          <a class="page-link"
+            href="/dashboard/subscription?page={{results.previous.page}}&limit={{results.previous.limit}}">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+
+        <li class="page-item {{#unless results.next}}disabled{{/unless}}">
+          <a class="page-link" href="/dashboard/subscription?page={{results.next.page}}&limit={{results.next.limit}}">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+
+
+</div>

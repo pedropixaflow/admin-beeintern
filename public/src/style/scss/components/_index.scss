@@ -1,0 +1,84 @@
+// typography
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&display=swap");
+
+// styles
+
+html {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label {
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  color: $gray-800;
+}
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="checkbox"]:focus,
+[type="text"].form-control:focus,
+[type="password"].form-control:focus,
+[type="email"].form-control:focus,
+[type="checkbox"].form-check-input:focus,
+[type="checkbox"].form-check-input:focus,
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before,
+.custom-control-input:checked ~ .custom-control-label::before,
+.btn:focus,
+.btn:active,
+.page-link,
+select,
+button {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+a {
+  text-decoration: none !important;
+  transition: 0.4s all;
+}
+
+a:hover {
+  text-decoration: none !important;
+  transition: all 0.5s;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+@import "../components/keyframes/index";
+@import "../components/mixin/index";
+
+@import "../components/auth/index";
+@import "../components/bg/index";
+@import "../components/scroll/index";
+@import "../components/form/index";
+@import "../components/separator/index";
+@import "../components/sidebar/index";
+@import "../components/text/index";
+@import "../components/navbar/index";
+@import "../components/card/index";
+@import "../components/border/index";
+@import "../components/btn/index";
+@import "../components/popover/index";
+@import "../components/table/index";
+@import "../components/modal/index";
+@import "../components/alert/index";
+@import "../components/loading/index";
+@import "../components/display/index";
+@import "../components/thumbnail/index";
+@import "../components/timeline/index";

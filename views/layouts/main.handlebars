@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  {{> SEO}}
+
+  {{!-- css --}}
+  <link rel="stylesheet" href="/src/style/css/main.css">
+
+  {{!-- icon --}}
+  <link rel="stylesheet" href="/src/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+</head>
+
+<body>
+
+  {{!-- default --}}
+  <script src="/src/js/jquery/jquery.min.js"></script>
+  <script src="/src/js/jquery/cookie.min.js"></script>
+  <script src="/src/js/popper/popper.min.js"></script>
+  <script src="/src/js/dist/bootstrap.min.js"></script>
+
+  {{!-- scripts --}}
+  <script src="/src/js/scripts/button/disabled.click.js"></script>
+
+  {{> loading}}
+
+  <div id="body">
+
+    {{!-- loading --}}
+    <script src="/src/js/scripts/loading/init.loading.js"></script>
+
+    {{{body}}}
+  </div>
+
+  {{!-- loading --}}
+  <script src="/src/js/scripts/loading/end.loading.js"></script>
+
+  {{!-- modo escuro --}}
+  <script src="/src/js/scripts/theme.dark/index.js"></script>
+
+</body>
+
+</html>

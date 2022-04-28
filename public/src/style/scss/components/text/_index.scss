@@ -1,0 +1,43 @@
+.noselect,
+.material-icons,
+.dropdown-menu {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.max-line {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.max-line.max-2 {
+    -webkit-line-clamp: 2 !important;
+}
+
+.max-line.max-3 {
+    -webkit-line-clamp: 3 !important;
+}
+
+.max-line.max-4 {
+    -webkit-line-clamp: 4 !important;
+}
+
+.max-line.max-5 {
+    -webkit-line-clamp: 5 !important;
+}
+
+.text-underline {
+    text-decoration: underline !important;
+}
+
+.text-underline:hover {
+    text-decoration: underline !important;
+}

@@ -1,0 +1,111 @@
+@mixin button-variant($bg-main, $bg-hover, $color) {
+    background-color: $bg-main !important;
+    color: $color !important;
+    border: 1px solid $bg-main !important;
+
+    &:hover {
+        background-color: $bg-hover !important;
+        border: 1px solid $bg-hover !important;
+    }
+}
+
+@mixin button-outline-variant($bg, $color) {
+    background-color: transparent !important;
+    border: 1px solid $bg !important;
+    color: $bg !important;
+
+    &:hover {
+        background-color: $bg !important;
+        color: $color !important;
+    }
+}
+
+@mixin button-circle-nocolor() {
+    height: 60px;
+    width: 60px;
+    padding: 13px 20px;
+    font-size: 16pt !important;
+    margin: auto;
+    border-radius: 50px;
+
+    &:hover {
+        filter: brightness(92%);
+    }
+}
+
+@mixin button-circle($bg-main, $color) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    border-radius: 50px;
+    background-color: $bg-main !important;
+    color: $color !important;
+
+    &:hover {
+        background-color: $bg-main !important;
+        filter: brightness(92%);
+    }
+}
+
+@mixin card-register($path-img) {
+    color: $white;
+
+    div.card-icon {
+        position: absolute;
+        top: 0.7rem;
+        right: 0.5rem;
+        height: 70px;
+        width: 70px;
+        background: url($path-img);
+        background-size: cover;
+        opacity: 0.3;
+    }
+
+    div.card-body {
+        border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .border#{$infix}-top {
+            border-top: $border-width solid $border-color !important;
+        }
+        .border#{$infix}-right {
+            border-right: $border-width solid $border-color !important;
+        }
+        .border#{$infix}-bottom {
+            border-bottom: $border-width solid $border-color !important;
+        }
+        .border#{$infix}-left {
+            border-left: $border-width solid $border-color !important;
+        }
+
+        .border#{$infix}-top-0 {
+            border-top: 0 !important;
+        }
+        .border#{$infix}-right-0 {
+            border-right: 0 !important;
+        }
+        .border#{$infix}-bottom-0 {
+            border-bottom: 0 !important;
+        }
+        .border#{$infix}-left-0 {
+            border-left: 0 !important;
+        }
+
+        .border#{$infix}-x {
+            border-left: $border-width solid $border-color !important;
+            border-right: $border-width solid $border-color !important;
+        }
+
+        .border#{$infix}-y {
+            border-top: $border-width solid $border-color !important;
+            border-bottom: $border-width solid $border-color !important;
+        }
+    }
+}
